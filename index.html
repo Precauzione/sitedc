@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Type Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body {
+  margin:0;
+  font-family:'Roboto',sans-serif;
+  background:radial-gradient(circle at top,#1a0a3b,#4b0082);
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* LANDING */
+#landing {
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:linear-gradient(135deg,#2a0a4b,#5b00aa);
+}
+#landing h1 {
+  font-size:4rem;
+  color:#d8b3ff;
+  text-shadow:0 0 10px #d8b3ff,0 0 20px #b565ff,0 0 40px #ff9aff,0 0 60px #7b2cbf;
+  margin:0;
+  animation:glow 2s ease-in-out infinite alternate;
+}
+@keyframes glow{
+0%{text-shadow:0 0 5px #d8b3ff,0 0 10px #b565ff,0 0 20px #ff9aff;}
+50%{text-shadow:0 0 15px #ffb3ff,0 0 30px #b565ff,0 0 50px #ff9aff;}
+100%{text-shadow:0 0 25px #d8b3ff,0 0 50px #b565ff,0 0 80px #ff9aff;}
+}
+#landing p{
+  font-size:1.3rem;
+  margin:15px 0 40px 0;
+  color:#ffb3ff;
+  text-shadow:0 0 5px #ffb3ff,0 0 10px #b565ff;
+}
+.enter-btn{
+  padding:18px 45px;
+  font-size:1.3rem;
+  font-weight:bold;
+  color:#fff;
+  background:#7b2cbf;
+  border:none;
+  border-radius:15px;
+  cursor:pointer;
+  box-shadow:0 0 30px #d8b3ff,0 0 60px #b565ff;
+  transition:all 0.4s ease;
+}
+.enter-btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 60px #ff9aff,0 0 100px #d8b3ff;
+}
+
+/* OWNER */
+#owner{
+  padding:60px 20px;
+  text-align:center;
+  background:#2a0a4b;
+}
+#owner img{
+  border-radius:50%;
+  width:180px;
+  height:180px;
+  border:4px solid #b565ff;
+  box-shadow:0 0 30px #ffb3ff,0 0 60px #d8b3ff;
+  margin-bottom:20px;
+  object-fit:cover;
+  transition:all 0.3s ease;
+}
+#owner img:hover{
+  transform:scale(1.1) rotate(3deg);
+  box-shadow:0 0 60px #ff9aff,0 0 90px #d8b3ff,0 0 120px #b565ff;
+}
+#owner h2{
+  color:#d8b3ff;
+  text-shadow:0 0 5px #d8b3ff,0 0 10px #b565ff,0 0 20px #ffb3ff;
+  margin-bottom:40px;
+  font-size:1.5rem;
+}
+#owner .server-banner{
+  margin-top:40px;
+  background:linear-gradient(135deg,#4b0082,#7b2cbf);
+  padding:50px;
+  border-radius:25px;
+  box-shadow:0 0 40px #ffb3ff,0 0 80px #b565ff;
+  animation:bannerGlow 3s infinite alternate;
+}
+@keyframes bannerGlow{
+0%{box-shadow:0 0 20px #d8b3ff,0 0 40px #b565ff;}
+50%{box-shadow:0 0 40px #ff9aff,0 0 80px #d8b3ff;}
+100%{box-shadow:0 0 60px #d8b3ff,0 0 100px #b565ff;}
+}
+#owner .server-banner h1{
+  margin:0;
+  font-size:3.5rem;
+  color:#fff;
+  text-shadow:0 0 20px #d8b3ff,0 0 40px #b565ff,0 0 60px #ffb3ff;
+}
+#owner .server-banner p{
+  margin-top:15px;
+  font-size:1.2rem;
+  color:#ffb3ff;
+  text-shadow:0 0 10px #d8b3ff,0 0 20px #b565ff;
+}
+
+/* SERVER */
+#server{
+  display:none;
+  padding:60px 20px;
+  max-width:1200px;
+  margin:auto;
+}
+#server h2{
+  text-align:center;
+  font-size:2.7rem;
+  color:#d8b3ff;
+  text-shadow:0 0 10px #d8b3ff,0 0 20px #b565ff,0 0 40px #ffb3ff;
+  margin-bottom:50px;
+}
+.category{
+  margin-bottom:50px;
+}
+.accordion {
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-right:10px;
+  user-select:none;
+}
+.panel {
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.3s ease;
+}
+.arrow {
+  font-size:1.2rem;
+  transition: transform 0.3s ease;
+}
+.active .arrow {
+  transform:rotate(180deg);
+}
+.channel{
+  background:rgba(255,255,255,0.05);
+  padding:12px 20px;
+  margin:10px 0;
+  border-radius:50px;
+  transition:all 0.3s ease;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  font-size:1.2rem;
+  color:#d8b3ff;
+  text-shadow:0 0 8px #d8b3ff,0 0 16px #b565ff;
+  box-shadow:0 0 10px #d8b3ff,0 0 20px #b565ff;
+}
+.channel:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px #ffb3ff,0 0 40px #b565ff,0 0 60px #d8b3ff;
+}
+.member-img{
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  margin:15px 0;
+  border:3px solid #b565ff;
+  box-shadow:0 0 20px #ffb3ff,0 0 40px #b565ff,0 0 60px #d8b3ff;
+  transition:all 0.3s ease;
+}
+.member-img:hover{
+  transform:scale(1.15) rotate(3deg);
+  box-shadow:0 0 50px #ff9aff,0 0 80px #d8b3ff,0 0 120px #b565ff;
+}
+
+/* DESCRIZIONE */
+.server-description {
+  max-width:800px;
+  margin:20px auto 20px auto;
+  text-align:center;
+  font-size:1.3rem;
+  line-height:1.8;
+  color:#d8b3ff;
+  text-shadow:0 0 5px #d8b3ff,0 0 10px #b565ff,0 0 20px #ff9aff,0 0 30px #7b2cbf;
+  animation:textGlow 3s ease-in-out infinite alternate;
+}
+.server-description .highlight {
+  color:#ffb3ff;
+  font-weight:bold;
+  text-shadow:0 0 8px #ffb3ff,0 0 16px #d8b3ff,0 0 24px #b565ff,0 0 36px #ff9aff;
+}
+@keyframes textGlow {
+0%{text-shadow:0 0 5px #d8b3ff,0 0 10px #b565ff,0 0 20px #ff9aff;}
+50%{text-shadow:0 0 15px #ffb3ff,0 0 30px #b565ff,0 0 50px #ff9aff;}
+100%{text-shadow:0 0 25px #d8b3ff,0 0 50px #b565ff,0 0 80px #ff9aff;}
+}
+
+/* INVITE BUTTON */
+.invite-btn{
+  display:inline-block;
+  padding:12px 25px;
+  font-size:1.2rem;
+  color:#fff;
+  background:#7b2cbf;
+  border:none;
+  border-radius:15px;
+  box-shadow:0 0 25px #d8b3ff,0 0 50px #b565ff;
+  text-decoration:none;
+  transition:all 0.3s ease;
+}
+.invite-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 50px #ffb3ff,0 0 80px #b565ff,0 0 100px #d8b3ff;
+}
+
+/* PARTICELLE */
+.particle{
+  position:absolute;
+  border-radius:50%;
+  opacity:0.5;
+  animation:float 6s infinite;
+}
+@keyframes float{
+0%{transform:translateY(0) scale(1);opacity:0.5;}
+50%{transform:translateY(-250px) scale(1.4);opacity:0.2;}
+100%{transform:translateY(0) scale(1);opacity:0.5;}
+}
+</style>
+</head>
+<body>
+
+<!-- LANDING -->
+<section id="landing">
+<h1>Benvenuti nel nostro Server!</h1>
+<p>Unisciti alla nostra community e scopri tutte le stanze 🌌</p>
+<button class="enter-btn" onclick="enterServer()">Entra nella pagina</button>
+</section>
+
+<!-- OWNER -->
+<section id="owner">
+<img src="images/owner.jpg" alt="Owner">
+<h2>Owner: Alessia - Mr.type - Astenersi</h2>
+<div class="server-banner">
+<h1>Type Home</h1>
+<p>© 2026 Type Home</p>
+</div>
+</section>
+
+<!-- SERVER -->
+<section id="server">
+<h2>Il Nostro Server Discord</h2>
+
+<!-- ACCORDION INFO -->
+<div class="category">
+<h3 class="accordion">Info <span class="arrow">▼</span></h3>
+<div class="panel">
+<img src="images/gif_info.gif" alt="GIF Info" style="width:200px;margin:0 auto 20px auto;display:block;border-radius:15px;box-shadow:0 0 30px #d8b3ff,0 0 60px #b565ff;">
+<div class="server-description">
+<p>Il server <span class="highlight">"Type Home"</span> è stato pensato per dare un posto tranquillo e accogliente per condividere le proprie passioni e le vostre idee e tanto altro. Una community <span class="highlight">accogliente</span> con persone <span class="highlight">simpatiche</span> e tante altre cose...</p>
+</div>
+<div class="channel">🌑 Chill</div>
+<div class="channel">🌑 Accogliente</div>
+</div>
+</div>
+
+<!-- ACCORDION CHAT + INVITE -->
+<div class="category">
+<h3 class="accordion">Cosa puoi trovare? <span class="arrow">▼</span></h3>
+<div class="panel">
+<div class="channel">💬 Chat</div>
+<div class="channel">🎨 Media & Meme</div>
+<div class="channel">🎮 Giochi</div>
+
+<!-- INVITE BUTTON -->
+<div style="text-align:center;margin-top:20px;">
+<a href="https://discord.gg/x2wVCvMt" class="invite-btn">Invita il Server</a>
+</div>
+</div>
+</div>
+
+<!-- TOP MEMBRI -->
+<div class="category">
+<h3>Top Membri</h3>
+<div class="channel" style="flex-direction: column; align-items: center;">
+<div style="margin-bottom: 10px; font-weight: bold; color:#d8b3ff; text-shadow:0 0 10px #d8b3ff,0 0 20px #b565ff,0 0 40px #ffb3ff; font-size:1.5rem;">🌸ᎷᎥᎩᏬᏦᎥ🌸</div>
+<img class="member-img" src="images/top_membro.jpg" alt="Top Membro">
+</div>
+</div>
+
+</section>
+
+<script>
+// PARTICELLE
+const colors = ['#d8b3ff','#9f5fff','#b565ff','#7b2cbf','#ff9aff','#ffb3ff'];
+for(let i = 0;i<50;i++){
+const particle=document.createElement('div');
+particle.classList.add('particle');
+const size=Math.random()*12+5;
+particle.style.width=size+'px';
+particle.style.height=size+'px';
+particle.style.background=colors[Math.floor(Math.random()*colors.length)];
+particle.style.left=Math.random()*window.innerWidth+'px';
+particle.style.top=Math.random()*window.innerHeight+'px';
+particle.style.animationDuration=(Math.random()*5+3)+'s';
+document.body.appendChild(particle);
+}
+
+// ACCORDION
+const accordions=document.getElementsByClassName('accordion');
+for(let acc of accordions){
+acc.addEventListener('click',function(){
+this.classList.toggle('active');
+const panel=this.nextElementSibling;
+if(panel.style.maxHeight){
+panel.style.maxHeight=null;
+}else{
+panel.style.maxHeight=panel.scrollHeight+'px';
+}
+});
+}
+
+// ENTER SERVER
+function enterServer(){
+document.getElementById('landing').style.display='none';
+document.getElementById('server').style.display='block';
+window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
