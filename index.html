@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+
+<base href="./">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Type Home</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
 body {
   margin:0;
@@ -185,7 +189,7 @@ body {
 /* DESCRIZIONE */
 .server-description {
   max-width:800px;
-  margin:20px auto 20px auto;
+  margin:20px auto;
   text-align:center;
   font-size:1.3rem;
   line-height:1.8;
@@ -211,7 +215,6 @@ body {
   font-size:1.2rem;
   color:#fff;
   background:#7b2cbf;
-  border:none;
   border-radius:15px;
   box-shadow:0 0 25px #d8b3ff,0 0 50px #b565ff;
   text-decoration:none;
@@ -236,16 +239,15 @@ body {
 }
 </style>
 </head>
+
 <body>
 
-<!-- LANDING -->
 <section id="landing">
 <h1>Benvenuti nel nostro Server!</h1>
 <p>Unisciti alla nostra community e scopri tutte le stanze 🌌</p>
 <button class="enter-btn" onclick="enterServer()">Entra nella pagina</button>
 </section>
 
-<!-- OWNER -->
 <section id="owner">
 <img src="images/owner.jpg" alt="Owner">
 <h2>Owner: Alessia - Mr.type - Astenersi</h2>
@@ -255,85 +257,72 @@ body {
 </div>
 </section>
 
-<!-- SERVER -->
 <section id="server">
 <h2>Il Nostro Server Discord</h2>
 
-<!-- ACCORDION INFO -->
 <div class="category">
 <h3 class="accordion">Info <span class="arrow">▼</span></h3>
 <div class="panel">
-<img src="images/gif_info.gif" alt="GIF Info" style="width:200px;margin:0 auto 20px auto;display:block;border-radius:15px;box-shadow:0 0 30px #d8b3ff,0 0 60px #b565ff;">
+<img src="images/gif_info.gif" style="width:200px;margin:auto;display:block;">
 <div class="server-description">
-<p>Il server <span class="highlight">"Type Home"</span> è stato pensato per dare un posto tranquillo e accogliente per condividere le proprie passioni e le vostre idee e tanto altro. Una community <span class="highlight">accogliente</span> con persone <span class="highlight">simpatiche</span> e tante altre cose...</p>
+<p>Il server <span class="highlight">Type Home</span> è una community accogliente.</p>
 </div>
 <div class="channel">🌑 Chill</div>
 <div class="channel">🌑 Accogliente</div>
 </div>
 </div>
 
-<!-- ACCORDION CHAT + INVITE -->
 <div class="category">
 <h3 class="accordion">Cosa puoi trovare? <span class="arrow">▼</span></h3>
 <div class="panel">
 <div class="channel">💬 Chat</div>
 <div class="channel">🎨 Media & Meme</div>
 <div class="channel">🎮 Giochi</div>
-
-<!-- INVITE BUTTON -->
 <div style="text-align:center;margin-top:20px;">
 <a href="https://discord.gg/x2wVCvMt" class="invite-btn">Invita il Server</a>
 </div>
 </div>
 </div>
 
-<!-- TOP MEMBRI -->
 <div class="category">
 <h3>Top Membri</h3>
-<div class="channel" style="flex-direction: column; align-items: center;">
-<div style="margin-bottom: 10px; font-weight: bold; color:#d8b3ff; text-shadow:0 0 10px #d8b3ff,0 0 20px #b565ff,0 0 40px #ffb3ff; font-size:1.5rem;">🌸ᎷᎥᎩᏬᏦᎥ🌸</div>
-<img class="member-img" src="images/top_membro.jpg" alt="Top Membro">
+<div class="channel" style="flex-direction:column;">
+<div style="font-size:1.5rem;">🌸ᎷᎥᎩᏬᏦᎥ🌸</div>
+<img class="member-img" src="images/top_membro.jpg">
 </div>
 </div>
 
 </section>
 
 <script>
-// PARTICELLE
-const colors = ['#d8b3ff','#9f5fff','#b565ff','#7b2cbf','#ff9aff','#ffb3ff'];
-for(let i = 0;i<50;i++){
-const particle=document.createElement('div');
-particle.classList.add('particle');
-const size=Math.random()*12+5;
-particle.style.width=size+'px';
-particle.style.height=size+'px';
-particle.style.background=colors[Math.floor(Math.random()*colors.length)];
-particle.style.left=Math.random()*window.innerWidth+'px';
-particle.style.top=Math.random()*window.innerHeight+'px';
-particle.style.animationDuration=(Math.random()*5+3)+'s';
-document.body.appendChild(particle);
+const colors=['#d8b3ff','#9f5fff','#b565ff','#7b2cbf','#ff9aff','#ffb3ff'];
+for(let i=0;i<50;i++){
+const p=document.createElement('div');
+p.className='particle';
+const s=Math.random()*12+5;
+p.style.width=s+'px';
+p.style.height=s+'px';
+p.style.background=colors[Math.floor(Math.random()*colors.length)];
+p.style.left=Math.random()*innerWidth+'px';
+p.style.top=Math.random()*innerHeight+'px';
+p.style.animationDuration=(Math.random()*5+3)+'s';
+document.body.appendChild(p);
 }
 
-// ACCORDION
-const accordions=document.getElementsByClassName('accordion');
-for(let acc of accordions){
-acc.addEventListener('click',function(){
-this.classList.toggle('active');
-const panel=this.nextElementSibling;
-if(panel.style.maxHeight){
-panel.style.maxHeight=null;
-}else{
-panel.style.maxHeight=panel.scrollHeight+'px';
-}
+document.querySelectorAll('.accordion').forEach(a=>{
+a.onclick=()=>{
+a.classList.toggle('active');
+const p=a.nextElementSibling;
+p.style.maxHeight?p.style.maxHeight=null:p.style.maxHeight=p.scrollHeight+'px';
+};
 });
-}
 
-// ENTER SERVER
 function enterServer(){
-document.getElementById('landing').style.display='none';
-document.getElementById('server').style.display='block';
-window.scrollTo(0,0);
+landing.style.display='none';
+server.style.display='block';
+scrollTo(0,0);
 }
 </script>
+
 </body>
 </html>
